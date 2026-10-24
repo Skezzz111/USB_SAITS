@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Новости — УСБ УВД по ЦАО · RMRP</title>
+  <meta name="theme-color" content="#F5F8EF">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/news.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+        <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__title">УСБ УВД по ЦАО</span>
+          <span class="brand__sub">Портал сотрудников</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="/metodika.html">Методический раздел</a></li>
+          <li><a class="site-nav__link" href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a class="site-nav__link" href="/news.html" aria-current="page">Новости</a></li>        </ul>
+        <div class="site-nav__actions" data-user-actions hidden>
+          <a class="btn btn--admin btn--sm" href="/admin.html" data-admin-only hidden>
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6z"/></svg>
+            Админ-панель
+          </a>
+          <a class="user-chip" href="/profile.html" data-user-chip>
+            <span class="visually-hidden">Мой профиль:</span>
+            <span class="user-chip__name" data-user-name></span>
+          </a>
+          <button class="icon-btn icon-btn--danger" type="button" data-logout aria-label="Выйти из аккаунта" title="Выйти">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head bg-grid" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="/index.html">Главная</a></li>
+            <li aria-current="page">Новости</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Новости</p>
+        <h1 class="page-title" id="page-title">Новости портала</h1>
+        <p class="page-lead">Объявления и новости, которые публикуют администраторы портала.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Список новостей">
+      <div class="container container--narrow">
+        <div class="news-list" data-news-list></div>
+        <p class="status" data-news-status>Загрузка новостей…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+          <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="40" height="40">
+          <span class="brand__text">
+            <span class="brand__title">УСБ УВД по ЦАО</span>
+            <span class="brand__sub">Портал сотрудников</span>
+          </span>
+        </a>
+        <p class="site-footer__about">Информационный портал сотрудников УСБ УВД по ЦАО на игровом сервере RMRP.</p>
+      </div>
+
+      <nav aria-labelledby="footer-nav-title">
+        <h2 class="footer-title" id="footer-nav-title">Разделы</h2>
+        <ul class="footer-links">
+          <li><a href="/index.html">Главная</a></li>
+          <li><a href="/metodika.html">Методический раздел</a></li>
+          <li><a href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a href="/news.html">Новости</a></li>          <li><a href="/profile.html">Мой профиль</a></li>        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Материалы</h2>
+        <ul class="footer-links">
+          <li><a href="https://docs.google.com/spreadsheets/d/1FphX628swnQDt07nnFk5fIo4d8fWFTa5gqtWzVk1xBM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Памятка по УК РФ, КоАП <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+          <li><a href="https://docs.google.com/document/d/102mDWoAnYypDOMMGsM4wi9vW-WOaxN6W7KjRkPP67JU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Общий список шаблонов <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>Неофициальный игровой ресурс для ролевой игры на сервере RMRP. Не связан с реальными государственными органами.</p>
+    </div>
+  </footer>
+</body>
+</html>

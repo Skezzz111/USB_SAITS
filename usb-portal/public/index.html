@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Главная — УСБ УВД по ЦАО · RMRP</title>
+  <meta name="description" content="Информационный портал сотрудников УСБ УВД по ЦАО на игровом сервере RMRP: методические материалы, документооборот и новости.">
+  <meta name="theme-color" content="#F5F8EF">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/news.js" defer></script>
+  <script src="/assets/js/moderation.js" defer></script>
+  <script src="/assets/js/chat.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+        <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="38" height="38">
+        <span class="brand__text">
+          <span class="brand__title">УСБ УВД по ЦАО</span>
+          <span class="brand__sub">Портал сотрудников</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/index.html" aria-current="page">Главная</a></li>
+          <li><a class="site-nav__link" href="/metodika.html">Методический раздел</a></li>
+          <li><a class="site-nav__link" href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a class="site-nav__link" href="/news.html">Новости</a></li>        </ul>
+        <div class="site-nav__actions" data-user-actions hidden>
+          <a class="btn btn--admin btn--sm" href="/admin.html" data-admin-only hidden>
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6z"/></svg>
+            Админ-панель
+          </a>
+          <a class="user-chip" href="/profile.html" data-user-chip>
+            <span class="visually-hidden">Мой профиль:</span>
+            <span class="user-chip__name" data-user-name></span>
+          </a>
+          <button class="icon-btn icon-btn--danger" type="button" data-logout aria-label="Выйти из аккаунта" title="Выйти">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero bg-grid" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <svg class="hero-slash" viewBox="0 0 44 44" aria-hidden="true" focusable="false">
+            <path d="M8 38 l12 -32"/>
+            <path d="M24 40 l12 -32"/>
+          </svg>
+
+          <p class="hero-badge">Добро пожаловать, <strong data-user-fullname>сотрудник</strong></p>
+
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title__line">Портал сотрудников</span>
+            <span class="hero-title__line">УСБ УВД по ЦАО</span>
+          </h1>
+
+          <p class="hero-sub">
+            Методические материалы, инструкции и новости для сотрудников УСБ УВД по ЦАО на игровом сервере RMRP.
+          </p>
+
+          <div class="hero-actions">
+            <span class="cta-ring"><a class="btn btn--lg" href="/metodika.html">Открыть материалы</a></span>
+            <a class="btn btn--ghost btn--lg" href="/dokumentooborot.html">Документооборот</a>
+
+            <p class="hero-note hero-note--signs">Не забывайте<br>про подписи!</p>
+            <svg class="hero-arrow hero-arrow--signs" viewBox="0 0 80 60" aria-hidden="true" focusable="false">
+              <path d="M74 14 C 56 6, 30 12, 12 36"/>
+              <path d="M12 36 l2 -13 M12 36 l12 -5"/>
+            </svg>
+
+            <p class="hero-note hero-note--chat" aria-hidden="true">Общайтесь<br>здесь</p>
+            <svg class="hero-arrow hero-arrow--chat" viewBox="0 0 80 90" aria-hidden="true" focusable="false">
+              <path d="M18 6 C 4 34, 18 66, 62 78"/>
+              <path d="M62 78 l-12 4 M62 78 l-8 -10"/>
+            </svg>
+          </div>
+        </div>
+
+        <section class="chat" data-chat aria-labelledby="chat-title">
+          <div class="chat__head">
+            <div>
+              <h2 class="chat__title" id="chat-title">Чат сотрудников</h2>
+              <p class="chat__subtitle">Сообщения видят все сотрудники портала. Enter — отправить, Shift+Enter — новая строка.</p>
+            </div>
+            <div class="chat__tools">
+              <span class="chat__live"><span class="chat__dot" aria-hidden="true"></span><span data-chat-total>Загрузка…</span></span>
+              <button class="btn btn--danger-ghost btn--sm" type="button" data-chat-clear hidden>
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                Очистить чат
+              </button>
+            </div>
+          </div>
+
+          <div class="chat__body">
+            <div class="chat__list" data-chat-list role="log" aria-label="Сообщения чата" tabindex="0"></div>
+            <p class="chat__empty" data-chat-empty hidden>Сообщений пока нет — напишите первым!</p>
+          </div>
+
+          <div class="chat__mute" data-chat-mute role="status" hidden></div>
+
+          <form class="chat__form" data-chat-form novalidate>
+            <label class="visually-hidden" for="chat-input">Сообщение</label>
+            <textarea class="chat__input" id="chat-input" data-chat-input rows="1" maxlength="1000" placeholder="Напишите сообщение…"></textarea>
+            <span class="chat__counter" data-chat-counter aria-hidden="true">0/1000</span>
+            <button class="btn chat__send" type="submit" data-chat-send aria-label="Отправить сообщение">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+              <span class="chat__send-text">Отправить</span>
+            </button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sections-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Навигация</p>
+          <h2 class="section-title" id="sections-title">Разделы портала</h2>
+          <p class="section-lead">Портал будет пополняться новыми разделами.</p>
+        </div>
+
+        <div class="grid grid--cards">
+          <article class="card card--link">
+            <span class="card__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            <h3 class="card__title"><a class="card__link" href="/metodika.html">Методический раздел</a></h3>
+            <p class="card__text">Справочные материалы: памятка по УК РФ и КоАП, памятка по документообороту, дресс-код УСБ.</p>
+            <span class="card__more" aria-hidden="true">
+              Перейти
+              <svg class="icon icon--sm" viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </article>
+
+          <article class="card card--link">
+            <span class="card__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+            </span>
+            <h3 class="card__title"><a class="card__link" href="/dokumentooborot.html">Документооборот</a></h3>
+            <p class="card__text">Конструктор документов по шаблонам, порядок подготовки и отправки документов.</p>
+            <span class="card__more" aria-hidden="true">
+              Перейти
+              <svg class="icon icon--sm" viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </article>
+
+          <article class="card card--link">
+            <span class="card__icon">
+              <svg class="icon icon--lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a3 3 0 0 1 0 6M19 6a7 7 0 0 1 0 12"/></svg>
+            </span>
+            <h3 class="card__title"><a class="card__link" href="/news.html">Новости</a></h3>
+            <p class="card__text">Объявления и новости, которые публикуют администраторы портала.</p>
+            <span class="card__more" aria-hidden="true">
+              Перейти
+              <svg class="icon icon--sm" viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </article>
+        </div>
+
+        <aside class="panel panel--spaced" aria-labelledby="quick-title">
+          <div class="panel__head">
+            <h2 class="panel__title" id="quick-title">Быстрый доступ</h2>
+            <span class="badge">3 материала</span>
+          </div>
+          <ul class="quick-list quick-list--row">
+            <li>
+              <a class="quick-link" href="https://docs.google.com/spreadsheets/d/1FphX628swnQDt07nnFk5fIo4d8fWFTa5gqtWzVk1xBM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span class="quick-link__icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+                </span>
+                <span class="quick-link__text">
+                  <strong>Памятка по УК РФ, КоАП</strong>
+                  <small>Google Таблицы</small>
+                </span>
+                <span class="visually-hidden">(откроется в новой вкладке)</span>
+                <svg class="icon icon--sm quick-link__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="quick-link" href="/dokumentooborot.html">
+                <span class="quick-link__icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+                </span>
+                <span class="quick-link__text">
+                  <strong>Памятка по документообороту</strong>
+                  <small>Пошаговая инструкция</small>
+                </span>
+                <svg class="icon icon--sm quick-link__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="quick-link" href="https://docs.google.com/document/d/102mDWoAnYypDOMMGsM4wi9vW-WOaxN6W7KjRkPP67JU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span class="quick-link__icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </span>
+                <span class="quick-link__text">
+                  <strong>Общий список шаблонов</strong>
+                  <small>Google Документы</small>
+                </span>
+                <span class="visually-hidden">(откроется в новой вкладке)</span>
+                <svg class="icon icon--sm quick-link__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="latest-title">
+      <div class="container">
+        <div class="section-head section-head--row">
+          <div>
+            <p class="eyebrow">Новости</p>
+            <h2 class="section-title" id="latest-title">Последние новости</h2>
+          </div>
+          <a class="btn btn--ghost" href="/news.html">
+            Все новости
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="news-list news-list--grid" data-news-list data-limit="3" data-compact></div>
+        <p class="status" data-news-status>Загрузка новостей…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+          <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="38" height="38">
+          <span class="brand__text">
+            <span class="brand__title">УСБ УВД по ЦАО</span>
+            <span class="brand__sub">Портал сотрудников</span>
+          </span>
+        </a>
+        <p class="site-footer__about">Информационный портал сотрудников УСБ УВД по ЦАО на игровом сервере RMRP.</p>
+      </div>
+
+      <nav aria-labelledby="footer-nav-title">
+        <h2 class="footer-title" id="footer-nav-title">Разделы</h2>
+        <ul class="footer-links">
+          <li><a href="/index.html">Главная</a></li>
+          <li><a href="/metodika.html">Методический раздел</a></li>
+          <li><a href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a href="/news.html">Новости</a></li>          <li><a href="/profile.html">Мой профиль</a></li>        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Материалы</h2>
+        <ul class="footer-links">
+          <li><a href="https://docs.google.com/spreadsheets/d/1FphX628swnQDt07nnFk5fIo4d8fWFTa5gqtWzVk1xBM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Памятка по УК РФ, КоАП <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+          <li><a href="https://docs.google.com/document/d/102mDWoAnYypDOMMGsM4wi9vW-WOaxN6W7KjRkPP67JU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Общий список шаблонов <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>Неофициальный игровой ресурс для ролевой игры на сервере RMRP. Не связан с реальными государственными органами.</p>
+    </div>
+  </footer>
+</body>
+</html>

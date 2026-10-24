@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — УСБ УВД по ЦАО · RMRP</title>
+  <meta name="description" content="Вход в портал сотрудников УСБ УВД по ЦАО на игровом сервере RMRP.">
+  <meta name="theme-color" content="#F5F8EF">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/login.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <span class="brand">
+        <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__title">УСБ УВД по ЦАО</span>
+          <span class="brand__sub">Портал сотрудников</span>
+        </span>
+      </span>
+      <span class="header-note">Вход для сотрудников</span>
+    </div>
+  </header>
+
+  <main id="main" class="auth-page bg-grid">
+    <div class="container">
+      <section class="auth-card" aria-labelledby="login-title">
+        <img class="auth-card__mark" src="/assets/img/mark.svg" alt="" width="56" height="56">
+        <p class="auth-card__note hand" aria-hidden="true">Добро пожаловать!</p>
+        <h1 class="auth-card__title" id="login-title">Вход в аккаунт</h1>
+        <p class="auth-card__text">
+          Аккаунты создаёт администратор портала. Если у вас нет данных для входа, обратитесь к администратору.
+        </p>
+
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="login">Логин</label>
+            <input class="input" id="login" name="login" type="text" autocomplete="username"
+                   autocapitalize="off" spellcheck="false" maxlength="32" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="password">Пароль</label>
+            <div class="input-group">
+              <input class="input" id="password" name="password" type="password" autocomplete="current-password"
+                     maxlength="128" required>
+              <button class="icon-btn icon-btn--input" type="button" data-toggle-password="password"
+                      aria-label="Показать пароль" aria-pressed="false">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <p class="alert" id="login-error" role="alert" hidden></p>
+
+          <button class="btn btn--block" type="submit" id="login-submit">
+            Войти
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5M15 12H3"/></svg>
+          </button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__bottom">
+      <p>Неофициальный игровой ресурс для ролевой игры на сервере RMRP. Не связан с реальными государственными органами.</p>
+    </div>
+  </footer>
+</body>
+</html>

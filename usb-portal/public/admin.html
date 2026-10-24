@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Админ-панель — УСБ УВД по ЦАО · RMRP</title>
+  <meta name="theme-color" content="#F5F8EF">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/moderation.js" defer></script>
+  <script src="/assets/js/admin.js" defer></script>
+  <script src="/assets/js/docrender.js" defer></script>
+  <script src="/assets/js/admin-docs.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container container--wide site-header__inner">
+      <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+        <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__title">УСБ УВД по ЦАО</span>
+          <span class="brand__sub">Портал сотрудников</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="/index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="/metodika.html">Методический раздел</a></li>
+          <li><a class="site-nav__link" href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a class="site-nav__link" href="/news.html">Новости</a></li>        </ul>
+        <div class="site-nav__actions" data-user-actions hidden>
+          <a class="btn btn--admin btn--sm" href="/admin.html" data-admin-only hidden aria-current="page">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6z"/></svg>
+            Админ-панель
+          </a>
+          <a class="user-chip" href="/profile.html" data-user-chip>
+            <span class="visually-hidden">Мой профиль:</span>
+            <span class="user-chip__name" data-user-name></span>
+          </a>
+          <button class="icon-btn icon-btn--danger" type="button" data-logout aria-label="Выйти из аккаунта" title="Выйти">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head bg-grid" aria-labelledby="page-title">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <ol>
+            <li><a href="/index.html">Главная</a></li>
+            <li aria-current="page">Админ-панель</li>
+          </ol>
+        </nav>
+        <p class="eyebrow">Администрирование</p>
+        <h1 class="page-title" id="page-title">Админ-панель</h1>
+        <p class="page-lead">Профили сотрудников, новости, документооборот и шаблоны документов.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Разделы админ-панели">
+          <button class="tab" type="button" role="tab" id="tab-users" data-hash="profiles" aria-controls="panel-users" aria-selected="true">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 3.5a4 4 0 0 1 0 9M22 21a7 7 0 0 0-4-6.3"/></svg>
+            Профили
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-news" data-hash="news" aria-controls="panel-news" aria-selected="false" tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a3 3 0 0 1 0 6M19 6a7 7 0 0 1 0 12"/></svg>
+            Новости
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-docs" data-hash="documents" aria-controls="panel-docs" aria-selected="false" tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+            Документооборот
+            <span class="tab__badge" id="docs-unread" hidden></span>
+          </button>
+          <button class="tab" type="button" role="tab" id="tab-templates" data-hash="templates" aria-controls="panel-templates" aria-selected="false" tabindex="-1">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
+            Шаблоны
+          </button>
+        </div>
+
+        <!-- Профили -->
+        <div class="tab-panel" id="panel-users" role="tabpanel" aria-labelledby="tab-users" tabindex="0">
+          <div class="toolbar">
+            <div class="search">
+              <label class="visually-hidden" for="user-search">Поиск профилей</label>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" type="search" id="user-search" placeholder="Поиск: ФИО, логин, звание, должность, Discord" autocomplete="off">
+            </div>
+            <div class="toolbar__right">
+              <span class="count" id="user-count" aria-live="polite"></span>
+              <button class="btn" type="button" id="user-create">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                Создать профиль
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="visually-hidden">Профили сотрудников</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Сотрудник</th>
+                  <th scope="col">Звание</th>
+                  <th scope="col">Должность</th>
+                  <th scope="col">Discord</th>
+                  <th scope="col">Роль</th>
+                  <th scope="col">Чат</th>
+                  <th scope="col"><span class="visually-hidden">Действия</span></th>
+                </tr>
+              </thead>
+              <tbody id="user-rows"></tbody>
+            </table>
+            <p class="empty" id="user-empty">Загрузка профилей…</p>
+          </div>
+        </div>
+
+        <!-- Новости -->
+        <div class="tab-panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news" tabindex="0" hidden>
+          <div class="admin-news">
+            <form class="box" id="news-form" novalidate>
+              <h2 class="box__title" id="news-form-title">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                <span id="news-form-label">Новая новость</span>
+              </h2>
+              <div class="field">
+                <label class="field__label" for="news-title">Заголовок <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="news-title" type="text" maxlength="120" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="news-body">Текст новости <span class="req" aria-hidden="true">*</span></label>
+                <textarea class="textarea" id="news-body" maxlength="5000" rows="8" required aria-describedby="news-counter"></textarea>
+                <span class="counter" id="news-counter">0 / 5000</span>
+              </div>
+              <p class="alert" id="news-error" role="alert" hidden></p>
+              <div class="form-actions">
+                <button class="btn" type="submit" id="news-submit">Опубликовать</button>
+                <button class="btn btn--ghost" type="button" id="news-cancel" hidden>Отменить редактирование</button>
+              </div>
+            </form>
+
+            <div>
+              <h2 class="doc-subtitle">Опубликованные новости</h2>
+              <div class="table-wrap" id="admin-news-list">
+                <p class="empty">Загрузка новостей…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Документооборот -->
+        <div class="tab-panel" id="panel-docs" role="tabpanel" aria-labelledby="tab-docs" tabindex="0" hidden>
+          <div class="toolbar">
+            <div class="search">
+              <label class="visually-hidden" for="doc-search">Поиск документов</label>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input class="input" type="search" id="doc-search" placeholder="Поиск: номер, документ, автор, содержимое" autocomplete="off">
+            </div>
+            <div class="toolbar__right">
+              <span class="count" id="doc-count" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="visually-hidden">Отправленные документы</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Документ</th>
+                  <th scope="col">Номер</th>
+                  <th scope="col">Автор</th>
+                  <th scope="col">Отправлен</th>
+                  <th scope="col"><span class="visually-hidden">Действия</span></th>
+                </tr>
+              </thead>
+              <tbody id="doc-rows"></tbody>
+            </table>
+            <p class="empty" id="doc-empty">Загрузка документов…</p>
+          </div>
+        </div>
+
+        <!-- Шаблоны -->
+        <div class="tab-panel" id="panel-templates" role="tabpanel" aria-labelledby="tab-templates" tabindex="0" hidden>
+          <div class="toolbar">
+            <p class="count">Шаблоны, из которых сотрудники собирают документы в конструкторе.</p>
+            <button class="btn" type="button" id="tpl-create">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+              Новый шаблон
+            </button>
+          </div>
+          <div class="table-wrap" id="tpl-list">
+            <p class="empty">Загрузка шаблонов…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Просмотр отправленного документа -->
+  <dialog class="dialog dialog--wide" id="doc-dialog" aria-labelledby="doc-dialog-title">
+    <div class="dialog__head">
+      <div>
+        <h2 class="dialog__title" id="doc-dialog-title">Документ</h2>
+        <p class="doc-meta" id="doc-dialog-meta"></p>
+      </div>
+      <button class="icon-btn" type="button" data-doc-close aria-label="Закрыть">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="dialog__body">
+      <div class="doc-preview doc-preview--dialog" id="doc-dialog-preview"></div>
+    </div>
+    <div class="dialog__foot">
+      <button class="btn btn--danger-ghost" type="button" id="doc-dialog-delete">Удалить</button>
+      <button class="btn btn--ghost" type="button" data-doc-close>Закрыть</button>
+      <button class="btn" type="button" id="doc-dialog-download">Скачать PNG</button>
+    </div>
+  </dialog>
+
+  <!-- Создание и редактирование шаблона -->
+  <dialog class="dialog dialog--wide" id="tpl-dialog" aria-labelledby="tpl-dialog-title">
+    <form id="tpl-form" novalidate>
+      <div class="dialog__head">
+        <h2 class="dialog__title" id="tpl-dialog-title">Новый шаблон</h2>
+        <button class="icon-btn" type="button" data-tpl-close aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="dialog__body tpl-editor">
+        <div class="tpl-editor__form">
+          <div class="field">
+            <label class="field__label" for="tpl-title">Название <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="tpl-title" type="text" maxlength="150" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="tpl-description">Описание</label>
+            <input class="input" id="tpl-description" type="text" maxlength="300">
+          </div>
+          <div class="field">
+            <label class="field__label" for="tpl-body">Текст шаблона <span class="req" aria-hidden="true">*</span></label>
+            <textarea class="textarea tpl-body" id="tpl-body" maxlength="20000" spellcheck="false" required></textarea>
+          </div>
+          <details class="tpl-help">
+            <summary>Как размечать шаблон</summary>
+            <ul>
+              <li><code>{Поле}</code> — заполняет сотрудник; одинаковые поля заполняются один раз.</li>
+              <li><code>[«24» октября 2026 г.]</code> — дата: ставится автоматически в том же формате, что и пример в скобках.</li>
+              <li><code>[подпись]</code> — подпись автора из профиля, <code>[печать]</code> — печать УВД, <code>[герб]</code> — геральдический знак МВД (строка <code>^[герб]</code> ставит его по центру; размер можно задать: <code>[герб 32мм]</code>).</li>
+              <li><code>**текст**</code> — жирный, <code>__текст__</code> — курсив.</li>
+              <li>Начало строки: <code>^</code> — по центру, <code>&gt;</code> — справа, <code>&lt;</code> — слева без отступа, <code>#</code> — крупный заголовок, <code>~</code> — мелкий шрифт (можно вместе: <code>~^</code>). Без знака — абзац по ширине с отступом.</li>
+              <li><code>левое | центр | правое</code> — строка из колонок (например, дата, город и номер).</li>
+              <li>Бланк в несколько колонок: строка <code>::: колонки 47/16/37</code> (ширины в процентах), затем строки первой колонки, <code>:::</code> — начало следующей колонки (<code>::: по центру</code> — с выравниванием по вертикали), <code>::: конец</code> — конец блока.</li>
+              <li><code>::: поля 10 10 10 10</code> — поля листа в миллиметрах: верх, право, низ, лево.</li>
+              <li>Пустая строка — интервал. Поля <code>{ФИО}</code>, <code>{звание}</code>, <code>{должность}</code>, <code>{Инициалы}</code> и номер (<code>{262-410-5}</code> или <code>{Номер документа}</code>) подставляются автоматически.</li>
+            </ul>
+          </details>
+          <p class="alert" id="tpl-error" role="alert" hidden></p>
+        </div>
+        <div class="tpl-editor__preview">
+          <p class="field__label">Предпросмотр</p>
+          <div class="doc-preview" id="tpl-preview"></div>
+        </div>
+      </div>
+      <div class="dialog__foot">
+        <button class="btn btn--ghost" type="button" data-tpl-close>Отмена</button>
+        <button class="btn" type="submit" id="tpl-submit">Сохранить шаблон</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Создание и редактирование профиля -->
+  <dialog class="dialog" id="user-dialog" aria-labelledby="user-dialog-title">
+    <form id="user-form" novalidate>
+      <div class="dialog__head">
+        <h2 class="dialog__title" id="user-dialog-title">Новый профиль</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="dialog__body">
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Главные данные</legend>
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label" for="f-login">Логин <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-login" type="text" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="f-login-hint">
+              <span class="field__hint" id="f-login-hint">3–32 символа: латиница, цифры, точка, дефис, подчёркивание.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-password">Пароль <span class="req" id="f-password-req" aria-hidden="true">*</span></label>
+              <div class="input-group">
+                <input class="input" id="f-password" type="password" maxlength="128" autocomplete="new-password" aria-describedby="f-password-hint">
+                <button class="icon-btn icon-btn--input" type="button" data-toggle-password="f-password" aria-label="Показать пароль" aria-pressed="false">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+                <button class="icon-btn icon-btn--input" type="button" id="f-generate" aria-label="Сгенерировать надёжный пароль" title="Сгенерировать пароль">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+                </button>
+              </div>
+              <span class="field__hint" id="f-password-hint">Не менее 8 символов.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset__legend">Персональные данные</legend>
+          <div class="form-grid form-grid--3">
+            <div class="field">
+              <label class="field__label" for="f-lastName">Фамилия <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-lastName" type="text" maxlength="40" autocomplete="off" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-firstName">Имя <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-firstName" type="text" maxlength="40" autocomplete="off" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-middleName">Отчество</label>
+              <input class="input" id="f-middleName" type="text" maxlength="40" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label" for="f-rank">Звание <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-rank" type="text" maxlength="60" autocomplete="off" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-position">Должность <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-position" type="text" maxlength="80" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="field">
+              <label class="field__label" for="f-discord">Логин Discord <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-discord" type="text" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="f-discord-hint">
+              <span class="field__hint" id="f-discord-hint">2–32 символа: латиница, цифры, точка, подчёркивание.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-role">Роль</label>
+              <select class="select" id="f-role" aria-describedby="f-role-hint">
+                <option value="user">Сотрудник</option>
+                <option value="admin">Администратор</option>
+              </select>
+              <span class="field__hint" id="f-role-hint" hidden>Свою роль изменить нельзя.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset" id="f-images" hidden>
+          <legend class="fieldset__legend">Изображения профиля</legend>
+          <label class="checkbox"><input type="checkbox" id="f-removeAvatar"> Удалить аватар</label>
+          <label class="checkbox"><input type="checkbox" id="f-removeBanner"> Удалить баннер</label>
+        </fieldset>
+
+        <p class="alert" id="user-form-error" role="alert" hidden></p>
+      </div>
+
+      <div class="dialog__foot">
+        <button class="btn btn--ghost" type="button" data-close>Отмена</button>
+        <button class="btn" type="submit" id="user-submit">Создать профиль</button>
+      </div>
+    </form>
+
+    <div id="user-created" hidden>
+      <div class="dialog__head">
+        <h2 class="dialog__title" id="user-created-title" tabindex="-1">Профиль создан</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Закрыть">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="dialog__body">
+        <p class="alert alert--success">Передайте сотруднику данные для входа. После закрытия окна пароль больше не будет показан.</p>
+        <dl class="credentials">
+          <div><dt>ФИО</dt><dd id="c-name"></dd></div>
+          <div><dt>Логин</dt><dd id="c-login"></dd></div>
+          <div><dt>Пароль</dt><dd id="c-password"></dd></div>
+        </dl>
+      </div>
+      <div class="dialog__foot">
+        <button class="btn btn--ghost" type="button" id="c-copy">Скопировать данные</button>
+        <button class="btn" type="button" data-close>Готово</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Подтверждение удаления -->
+  <dialog class="dialog dialog--sm" id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+    <div class="dialog__head">
+      <h2 class="dialog__title" id="confirm-title">Удалить?</h2>
+    </div>
+    <div class="dialog__body">
+      <p id="confirm-text"></p>
+    </div>
+    <div class="dialog__foot">
+      <button class="btn btn--ghost" type="button" id="confirm-cancel">Отмена</button>
+      <button class="btn btn--danger" type="button" id="confirm-ok">Удалить</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div>
+        <a class="brand" href="/index.html" aria-label="УСБ УВД по ЦАО — на главную">
+          <img class="brand__mark" src="/assets/img/mark.svg" alt="" width="40" height="40">
+          <span class="brand__text">
+            <span class="brand__title">УСБ УВД по ЦАО</span>
+            <span class="brand__sub">Портал сотрудников</span>
+          </span>
+        </a>
+        <p class="site-footer__about">Информационный портал сотрудников УСБ УВД по ЦАО на игровом сервере RMRP.</p>
+      </div>
+
+      <nav aria-labelledby="footer-nav-title">
+        <h2 class="footer-title" id="footer-nav-title">Разделы</h2>
+        <ul class="footer-links">
+          <li><a href="/index.html">Главная</a></li>
+          <li><a href="/metodika.html">Методический раздел</a></li>
+          <li><a href="/dokumentooborot.html">Документооборот</a></li>
+          <li><a href="/news.html">Новости</a></li>          <li><a href="/profile.html">Мой профиль</a></li>        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-title">Материалы</h2>
+        <ul class="footer-links">
+          <li><a href="https://docs.google.com/spreadsheets/d/1FphX628swnQDt07nnFk5fIo4d8fWFTa5gqtWzVk1xBM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Памятка по УК РФ, КоАП <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+          <li><a href="https://docs.google.com/document/d/102mDWoAnYypDOMMGsM4wi9vW-WOaxN6W7KjRkPP67JU/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Общий список шаблонов <span class="visually-hidden">(откроется в новой вкладке)</span><svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>Неофициальный игровой ресурс для ролевой игры на сервере RMRP. Не связан с реальными государственными органами.</p>
+    </div>
+  </footer>
+</body>
+</html>
